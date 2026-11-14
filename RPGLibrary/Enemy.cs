@@ -1,0 +1,58 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace RPGLibrary
+{
+    /// <summary>
+    /// Враг
+    /// </summary>
+    public class Enemy
+    {
+        /// <summary>
+        /// Положение врага по оси абсцис
+        /// </summary>
+        public int x;
+
+        /// <summary>
+        /// Положение врага по оси ординат
+        /// </summary>
+        public int y;
+
+        /// <summary>
+        /// Здоровье врага
+        /// </summary>
+        public int hp;
+
+        /// <summary>
+        /// Уровень атаки врага
+        /// </summary>
+        public int attack = 10;
+
+        /// <summary>
+        /// Уровень защиты врага
+        /// </summary>
+        public int defense = 50;
+
+        /// <summary>
+        /// Создает врага
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public Enemy(int x, int y, int hp)
+        {
+            this.x = x;
+            this.y = y;
+            this.hp = hp;
+        }
+
+        /// <summary>
+        /// Кто-то атакует врага
+        /// </summary>
+        /// <param name="attack">уровень атаки</param>
+        public void Attack(int attack)
+        {
+            hp -= attack - defense;
+        }
+    }
+}
