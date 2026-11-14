@@ -58,6 +58,9 @@ namespace RPGLibrary
                 SetPlayer(player.x, player.y + 1);
         }
 
+        /// <summary>
+        /// Обрабатывает столкновение игрока с другими объектами или врагами
+        /// </summary>
         private static void ProcessCollisions()
         {
             Item? item = map.GetItem(player.x, player.y);

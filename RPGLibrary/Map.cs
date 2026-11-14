@@ -27,12 +27,12 @@ namespace RPGLibrary
         public Cell[,] grid;
 
         /// <summary>
-        /// Список предметов мира
+        /// Список предметов карты
         /// </summary>
         public List<Item> listOfItems;
 
         /// <summary>
-        /// Список врагов
+        /// Список врагов карты
         /// </summary>
         public List<Enemy> listOfEnemies;
 
@@ -66,7 +66,7 @@ namespace RPGLibrary
         }
 
         /// <summary>
-        /// Устанавливает положение предмета на карте
+        /// Устанавливает положение нового предмета на карте
         /// </summary>
         /// <param name="item"></param>
         /// <param name="x"></param>
@@ -81,14 +81,14 @@ namespace RPGLibrary
         /// <summary>
         /// Добавляет врага на карту
         /// </summary>
-        /// <param name="enemy"></param>
+        /// <param name="enemy">добавляемый враг</param>
         public void AddEnemy(Enemy enemy)
         {
             listOfEnemies.Add(enemy);
         }
 
         /// <summary>
-        /// Обрабатывает столкновение игрока с другими объектами или врагами
+        /// Проверяет коллизию игрока с предметами
         /// </summary>
         public Item? GetItem(int x, int y)
         {
@@ -98,6 +98,9 @@ namespace RPGLibrary
             return null;
         }
 
+        /// <summary>
+        /// Проверяет коллизию игрока с врагами
+        /// </summary>
         public Enemy? GetEnemy(int x, int y)
         {
             foreach (Enemy enemy in listOfEnemies)
@@ -107,7 +110,7 @@ namespace RPGLibrary
         }
 
         /// <summary>
-        /// Отображает карту, врагов и предметы в консоли
+        /// Отображает карту, врагов и предметы в консоль
         /// </summary>
         public void Show()
         {

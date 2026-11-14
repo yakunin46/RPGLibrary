@@ -55,7 +55,7 @@ namespace RPGLibrary
         /// <summary>
         /// Добавляет предмет в инвентарь игрока
         /// </summary>
-        /// <param name="item"></param>
+        /// <param name="item">добавляемый предмет</param>
         public void AddItem(Item item)
         {
             inventory.Add(item);

@@ -37,8 +37,8 @@ namespace RPGLibrary
         /// <summary>
         /// Создает врага
         /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="x">координата x</param>
+        /// <param name="y">координата y</param>
         public Enemy(int x, int y, int hp)
         {
             this.x = x;
@@ -49,7 +49,7 @@ namespace RPGLibrary
         /// <summary>
         /// Кто-то атакует врага
         /// </summary>
-        /// <param name="attack">уровень атаки</param>
+        /// <param name="attack">уровень атаки того, кто атакует</param>
         public void Attack(int attack)
         {
             hp -= attack - defense;
