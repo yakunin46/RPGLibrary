@@ -20,6 +20,8 @@ namespace RPGLibrary
         /// </summary>
         public int y;
 
+        public int atlasNumber = 2;
+
         /// <summary>
         /// Здоровье игрока
         /// </summary>

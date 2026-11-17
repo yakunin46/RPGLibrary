@@ -12,7 +12,7 @@ namespace RPGLibrary
         /// <summary>
         /// Экземпляр карты
         /// </summary>
-        static Map map = new Map(2, 2);
+        static Map map = new Map(new int [2, 2]);
 
         /// <summary>
         /// Экземпляр игрока
@@ -94,7 +94,7 @@ namespace RPGLibrary
                 map.Show();
 
                 Console.SetCursorPosition(2 * player.x, player.y);
-                Console.Write(Atlas.Get(Cell.PLAYER));
+                Console.Write(player.atlasNumber);
 
                 ProcessCollisions();
 

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Text;
 using RPGLibrary;
 
 namespace RPG
@@ -11,23 +14,89 @@ namespace RPG
     /// </summary>
     class Program
     {
+        /// <summary>
+        /// Тип ячейки мира
+        /// </summary>
+        public enum Cell
+        {
+            /// <summary>
+            /// Пустая ячейка
+            /// </summary>
+            EMPTY,
+
+            /// <summary>
+            /// Стена
+            /// </summary>
+            WALL,
+
+            /// <summary>
+            /// Игрок
+            /// </summary>
+            PLAYER,
+
+            /// <summary>
+            /// Враг
+            /// </summary>
+            ENEMY,
+
+            /// <summary>
+            /// Предмет
+            /// </summary>
+            ITEM
+        }
+
+        static Cell[,] GenerateMatrix(int width, int height)
+        {
+            Cell[,] cellMatrix = new Cell[height, width];
+
+            for (int i = 0; i < height; i++)
+                for (int j = 0; j < width; j++)
+                    cellMatrix[i, j] = Cell.WALL;
+
+            for (int i = 1; i < 5; i++)
+                for (int j = 1; j < 5; j++)
+                    cellMatrix[i, j] = Cell.EMPTY;
+
+            for (int i = 6; i < 9; i++)
+                for (int j = 5; j < 8; j++)
+                    cellMatrix[i, j] = Cell.EMPTY;
+
+            return cellMatrix;
+        }
+
+        static int[,] ConvertToNumbers(Cell[,] cellMatrix)
+        {
+            int height = cellMatrix.GetLength(0);
+            int width = cellMatrix.GetLength(1);
+            int[,] intMatrix = new int[height, width];
+
+            for (int i = 0; i < height; i++)
+                for (int j = 0; j < width; j++)
+                    intMatrix[i, j] = (int)cellMatrix[i, j];
+
+            return intMatrix;
+        }
+
         static void Main()
         {
             Atlas.Set(" #$W?");
 
-            Map map = new Map(30, 20);
+            Cell[,] cellMatrix = GenerateMatrix(10, 15);
+            int[,] matrix = ConvertToNumbers(cellMatrix);
 
-            map.AddItem(new Item("Бочка"), 2, 2);
-            map.AddItem(new Item("Камень"), 5, 8);
-            map.AddItem(new Item("Бревно"), 22, 12);
-            map.AddItem(new Item("Меч"), 13, 17);
-            map.AddItem(new Item("Часы"), 24, 5);
+            Map map = new Map(matrix);
 
-            map.AddEnemy(new Enemy(5, 5, 100));
-            map.AddEnemy(new Enemy(12, 10, 100));
+            map.AddItem(new Item("Бревно", 1, 4, 4));
+            map.AddItem(new Item("Бочка", 3, 3, 4));
+            map.AddItem(new Item("Камень", 4, 3, 4));
+            map.AddItem(new Item("Меч", 3, 4, 4));
+            map.AddItem(new Item("Часы", 4, 4, 4));
+
+            map.AddEnemy(new Enemy(5, 8, 100, 3));
+            map.AddEnemy(new Enemy(7, 6, 100, 3));
 
             RPGEngine.SetMap(map);
-            RPGEngine.SetPlayer(17, 3);
+            RPGEngine.SetPlayer(1, 1);
 
             RPGEngine.Run();
         }

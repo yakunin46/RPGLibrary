@@ -34,16 +34,19 @@ namespace RPGLibrary
         /// </summary>
         public int defense = 50;
 
+        public int atlasNumber;
+
         /// <summary>
         /// Создает врага
         /// </summary>
         /// <param name="x">координата x</param>
         /// <param name="y">координата y</param>
-        public Enemy(int x, int y, int hp)
+        public Enemy(int x, int y, int hp, int atlasNumber)
         {
             this.x = x;
             this.y = y;
             this.hp = hp;
+            this.atlasNumber = atlasNumber;
         }
 
         /// <summary>

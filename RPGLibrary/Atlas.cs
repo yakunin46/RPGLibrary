@@ -6,37 +6,6 @@ using System.Text;
 namespace RPGLibrary
 {
     /// <summary>
-    /// Тип ячейки мира
-    /// </summary>
-    public enum Cell
-    {
-        /// <summary>
-        /// Пустая ячейка
-        /// </summary>
-        EMPTY,
-
-        /// <summary>
-        /// Стена
-        /// </summary>
-        WALL,
-
-        /// <summary>
-        /// Игрок
-        /// </summary>
-        PLAYER,
-
-        /// <summary>
-        /// Враг
-        /// </summary>
-        ENEMY,
-
-        /// <summary>
-        /// Предмет
-        /// </summary>
-        ITEM
-    }
-
-    /// <summary>
     /// Набор символов из которых состоит мир
     /// </summary>
     public static class Atlas
@@ -60,9 +29,9 @@ namespace RPGLibrary
         /// </summary>
         /// <param name="cell">Тип ячейки</param>
         /// <returns></returns>
-        public static char Get(Cell cell)
+        public static int Get(int atlasNumber)
         {
-            return strOfChars[(int) cell];
+            return strOfChars[atlasNumber];
         }
     }
 }

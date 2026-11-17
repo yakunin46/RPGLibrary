@@ -25,13 +25,18 @@ namespace RPGLibrary
         /// </summary>
         public int y;
 
+        public int atlasNumber;
+
         /// <summary>
         /// Создает предмет
         /// </summary>
         /// <param name="name">Имя предмета</param>
-        public Item(string name)
+        public Item(string name, int x, int y, int atlasNumber)
         {
             this.name = name;
+            this.x = x;
+            this.y = y;
+            this.atlasNumber = atlasNumber;
         }
 
         /// <summary>

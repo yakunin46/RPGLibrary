@@ -24,7 +24,7 @@ namespace RPGLibrary
         /// <summary>
         /// Создает сетку карты
         /// </summary>
-        public Cell[,] grid;
+        public int[,] grid;
 
         /// <summary>
         /// Список предметов карты
@@ -41,28 +41,14 @@ namespace RPGLibrary
         /// </summary>
         /// <param name="height">Высота мира</param>
         /// <param name="width">Ширина мира</param>
-        public Map(int width, int height)
+        public Map(int[,] matrix)
         {
-            this.width = width;
-            this.height = height;
-            grid = new Cell[height, width];
-            Create();
+            height = matrix.GetLength(0);
+            width = matrix.GetLength(1);
+            grid = matrix;
 
             listOfItems = new List<Item>();
             listOfEnemies = new List<Enemy>();
-        }
-
-        /// <summary>
-        /// Заполняет границы карты как стенки
-        /// </summary>        
-        void Create()
-        {
-            for (int i = 0; i < height; i++)
-                for (int j = 0; j < width; j++)
-                    if (i == 0 || j == 0 || i == height - 1 || j == width - 1)
-                        grid[i, j] = Cell.WALL;
-                    else
-                        grid[i, j] = Cell.EMPTY;
         }
 
         /// <summary>
@@ -71,10 +57,8 @@ namespace RPGLibrary
         /// <param name="item"></param>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public void AddItem(Item item, int x, int y)
+        public void AddItem(Item item)
         {
-            item.x = x;
-            item.y = y;
             listOfItems.Add(item);
         }
 
@@ -117,20 +101,20 @@ namespace RPGLibrary
             for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
-                    Console.Write(Atlas.Get(grid[i, j]) + " ");
+                    Console.Write(grid[i, j] + " ");
                 Console.WriteLine();
             }
 
             foreach (Enemy enemy in listOfEnemies)
             {
                 Console.SetCursorPosition(2 * enemy.x, enemy.y);
-                Console.Write(Atlas.Get(Cell.ENEMY));
+                Console.Write(enemy.atlasNumber);
             }
 
             foreach (Item item in listOfItems)
             {
                 Console.SetCursorPosition(2 * item.x, item.y);
-                Console.Write(Atlas.Get(Cell.ITEM));
+                Console.Write(item.atlasNumber);
             }
         }
     }
