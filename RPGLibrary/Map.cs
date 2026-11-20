@@ -101,20 +101,20 @@ namespace RPGLibrary
             for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
-                    Console.Write(grid[i, j] + " ");
+                    Console.Write(Atlas.Get(grid[i, j]) + " ");
                 Console.WriteLine();
             }
 
             foreach (Enemy enemy in listOfEnemies)
             {
                 Console.SetCursorPosition(2 * enemy.x, enemy.y);
-                Console.Write(enemy.atlasNumber);
+                Console.Write(Atlas.Get(enemy.atlasNumber));
             }
 
             foreach (Item item in listOfItems)
             {
                 Console.SetCursorPosition(2 * item.x, item.y);
-                Console.Write(item.atlasNumber);
+                Console.Write(Atlas.Get(item.atlasNumber));
             }
         }
     }

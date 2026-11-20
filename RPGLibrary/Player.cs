@@ -20,6 +20,9 @@ namespace RPGLibrary
         /// </summary>
         public int y;
 
+        /// <summary>
+        /// Индекс в атласе
+        /// </summary>
         public int atlasNumber = 2;
 
         /// <summary>

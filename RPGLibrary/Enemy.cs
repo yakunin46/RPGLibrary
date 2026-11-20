@@ -34,6 +34,9 @@ namespace RPGLibrary
         /// </summary>
         public int defense = 50;
 
+        /// <summary>
+        /// Индекс в атласе
+        /// </summary>
         public int atlasNumber;
 
         /// <summary>

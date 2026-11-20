@@ -11,6 +11,11 @@ namespace RPG
     /// В RPGEngine map не должен быть public.
     /// Мы создаем его в Main, туда все добавляем,
     /// а потом делаем один раз SetMap().
+    /// Перенеси Cell из движка в RPG. То есть пользователь задает тип этим ячейкам,
+    /// а движок должен принимать в карту матрицу чисел.
+    /// Возьми код для Main,то что прислала Алёна
+    /// А для предметов и врагов, мы должны задавать номер из атласа
+    /// в конструкторах предмета и врага
     /// </summary>
     class Program
     {
@@ -81,7 +86,7 @@ namespace RPG
         {
             Atlas.Set(" #$W?");
 
-            Cell[,] cellMatrix = GenerateMatrix(10, 15);
+            Cell[,] cellMatrix = GenerateMatrix(10, 12);
             int[,] matrix = ConvertToNumbers(cellMatrix);
 
             Map map = new Map(matrix);

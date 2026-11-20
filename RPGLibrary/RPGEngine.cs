@@ -94,7 +94,7 @@ namespace RPGLibrary
                 map.Show();
 
                 Console.SetCursorPosition(2 * player.x, player.y);
-                Console.Write(player.atlasNumber);
+                Console.Write(Atlas.Get(player.atlasNumber));
 
                 ProcessCollisions();
 

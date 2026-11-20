@@ -29,7 +29,7 @@ namespace RPGLibrary
         /// </summary>
         /// <param name="cell">Тип ячейки</param>
         /// <returns></returns>
-        public static int Get(int atlasNumber)
+        public static char Get(int atlasNumber)
         {
             return strOfChars[atlasNumber];
         }
