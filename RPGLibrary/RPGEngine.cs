@@ -29,11 +29,23 @@ namespace RPGLibrary
         }
 
         /// <summary>
+        /// Устанавливает позицию игрока на карте
+        /// </summary>
+        /// <param name="x">Положение игрока по оси X</param>
+        /// <param name="y">Положение игрока по оси Y</param>
+        public static void SetPlayer(int x, int y, int atlasNumber)
+        {
+            player.x = x;
+            player.y = y;
+            player.atlasNumber = atlasNumber;
+        }
+
+        /// <summary>
         /// Меняет позицию игрока на карте
         /// </summary>
         /// <param name="x">Новое положение игрока по оси X</param>
         /// <param name="y">Новое положение игрока по оси Y</param>
-        public static void SetPlayer(int x, int y)
+        public static void MovePlayer(int x, int y)
         {
             player.x = x;
             player.y = y;
@@ -46,16 +58,16 @@ namespace RPGLibrary
         private static void CheckKey(ConsoleKeyInfo inputKey)
         {
             if (inputKey.KeyChar == '1' && player.x > 1)
-                SetPlayer(player.x - 1, player.y);
+                MovePlayer(player.x - 1, player.y);
 
             if (inputKey.KeyChar == '2' && player.x < map.width - 2)
-                SetPlayer(player.x + 1, player.y);
+                MovePlayer(player.x + 1, player.y);
 
             if (inputKey.KeyChar == '3' && player.y > 1)
-                SetPlayer(player.x, player.y - 1);
+                MovePlayer(player.x, player.y - 1);
 
             if (inputKey.KeyChar == '4' && player.y < map.height - 2)
-                SetPlayer(player.x, player.y + 1);
+                MovePlayer(player.x, player.y + 1);
         }
 
         /// <summary>
@@ -84,6 +96,9 @@ namespace RPGLibrary
         /// </summary>
         public static void Run()
         {
+            Graphics.Initialize();
+            Graphics.Run();
+
             ConsoleKeyInfo inputKey;
             Console.Clear();
             Console.CursorVisible = false;

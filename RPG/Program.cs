@@ -91,17 +91,17 @@ namespace RPG
 
             Map map = new Map(matrix);
 
-            map.AddItem(new Item("Бревно", 1, 4, 4));
-            map.AddItem(new Item("Бочка", 3, 3, 4));
-            map.AddItem(new Item("Камень", 4, 3, 4));
-            map.AddItem(new Item("Меч", 3, 4, 4));
-            map.AddItem(new Item("Часы", 4, 4, 4));
+            map.AddItem(new Item("Бревно", 4), 1, 4);
+            map.AddItem(new Item("Бочка", 4), 3, 3);
+            map.AddItem(new Item("Камень", 4), 4, 3);
+            map.AddItem(new Item("Меч", 4), 3, 4);
+            map.AddItem(new Item("Часы", 4), 4, 4);
 
             map.AddEnemy(new Enemy(5, 8, 100, 3));
             map.AddEnemy(new Enemy(7, 6, 100, 3));
 
             RPGEngine.SetMap(map);
-            RPGEngine.SetPlayer(1, 1);
+            RPGEngine.SetPlayer(1, 1, 2);
 
             RPGEngine.Run();
         }

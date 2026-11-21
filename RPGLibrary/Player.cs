@@ -23,7 +23,7 @@ namespace RPGLibrary
         /// <summary>
         /// Индекс в атласе
         /// </summary>
-        public int atlasNumber = 2;
+        public int atlasNumber;
 
         /// <summary>
         /// Здоровье игрока

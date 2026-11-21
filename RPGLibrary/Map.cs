@@ -57,8 +57,10 @@ namespace RPGLibrary
         /// <param name="item"></param>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public void AddItem(Item item)
+        public void AddItem(Item item, int x, int y)
         {
+            item.x = x;
+            item.y = y;
             listOfItems.Add(item);
         }
 
